@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Lista de Gêneros
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/genero/new">
+        <ion-icon name="add-circle"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let genero of generos">
+      <ion-item detail lines="full" routerLink="/genero/{{genero.id}}">
+        <ion-icon name="desktop" slot="start"></ion-icon>
+        {{genero.nome}}
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="edit(genero.id)">EDIT</ion-item-option>
+        <ion-item-option color="danger" (click)="delete(genero.id)">DELETE</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>
